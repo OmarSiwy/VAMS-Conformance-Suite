@@ -722,7 +722,7 @@ static void usage(void) {
           "  -j        tests run in parallel (default 1)\n"
           "  -x        expected failures: one test name (as printed) per line\n"
           "  -T        per-stage timeout (default 120)\n"
-          "  -o        write every verdict as `STATUS<TAB>path<TAB>detail`\n"
+          "  -o        write every verdict as `STATUS<TAB>name<TAB>milliseconds<TAB>detail`\n"
           "  -k        keep every work directory (failures always keep theirs)\n"
           "  -v        print passing tests too\n",
           stderr);
@@ -779,8 +779,12 @@ int main(int argc, char **argv) {
             if (pid == 0) {
                 close(p[0]);
                 char why[MSG] = "";
+                struct timespec t0, t1;
+                clock_gettime(CLOCK_MONOTONIC, &t0);
                 int v = run_test(&tests[next], next, why);
-                dprintf(p[1], "%d\t%s", v, why);
+                clock_gettime(CLOCK_MONOTONIC, &t1);
+                long ms = (t1.tv_sec - t0.tv_sec) * 1000 + (t1.tv_nsec - t0.tv_nsec) / 1000000;
+                dprintf(p[1], "%d\t%ld\t%s", v, ms, why);
                 _exit(0);
             }
             close(p[1]);
@@ -799,7 +803,10 @@ int main(int argc, char **argv) {
         done++;
         const char *path = tests[which[slot]].name;
         int v = n > 0 ? atoi(buf) : FAIL;
-        const char *why = n > 0 && strchr(buf, '\t') ? strchr(buf, '\t') + 1 : "harness child died";
+        /* `verdict<TAB>milliseconds<TAB>why` */
+        char *tab = n > 0 ? strchr(buf, '\t') : NULL;
+        long ms = tab ? atol(tab + 1) : 0;
+        const char *why = tab && strchr(tab + 1, '\t') ? strchr(tab + 1, '\t') + 1 : "harness child died";
         const char *status = names[v];
         int xf = expected_fail(path);
         if (xf && v == FAIL) status = "XFAIL", tally[3]++;
@@ -808,7 +815,7 @@ int main(int argc, char **argv) {
         if (v == ACCEPT && !xf) why = "compile-only: the tool has no run command";
         if (verbose || (strcmp(status, "PASS") && strcmp(status, "SKIP") && strcmp(status, "XFAIL")))
             printf("%-5s %s%s%s\n", status, path, *why ? ": " : "", why);
-        if (tsv) fprintf(tsv, "%s\t%s\t%s\n", status, path, why);
+        if (tsv) fprintf(tsv, "%s\t%s\t%ld\t%s\n", status, path, ms, why);
     }
     if (tsv) fclose(tsv);
     if (!keep_work) rmdir(work_root); /* only empty when nothing failed */

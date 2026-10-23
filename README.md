@@ -33,7 +33,7 @@ XPASS verilog/09_behavioral_modeling/case_default.v: expected to fail, passed
 ```
 
 `conform` exits 1 on any FAIL or XPASS. `-o results.tsv` writes every
-verdict; `-x tools/<tool>.xfail` turns known failures into XFAIL, so a CI gate
+verdict with its wall time in milliseconds; `-x tools/<tool>.xfail` turns known failures into XFAIL, so a CI gate
 fails only when something changes. `harness/selftest.sh` feeds the harness a
 scripted fake tool and checks every verdict (`nix flake check` runs it).
 
@@ -225,8 +225,13 @@ Every Monday `.github/workflows/conformance.yml` fetches each tool at its
 latest version (`tools/ci.sh`: VerA and ESPice at their default branch,
 OpenVAF-Reloaded at its newest release, the rest at nixpkgs-unstable), runs it
 over every test and manifest, and redraws these charts with `tools/report.py`.
-A tool's score is the tests it passes over every test in the language: a test
-it cannot express counts against it, as "not supported".
+Each language gets two charts. Conformance is the tests a tool passes over
+every test in the language: a test it cannot express counts against it, as
+"not supported". Speed is the wall time `conform` measured per test (compile
+and run), summed over the tests every charted tool passes, so each tool is
+timed on the same work. Each tool runs on its own GitHub-hosted runner of the
+same class, with as many tests in parallel as it has CPUs; treat differences
+under about 20% as noise.
 
 <!-- conformance:start -->
 No run yet: the first workflow run fills this in.
