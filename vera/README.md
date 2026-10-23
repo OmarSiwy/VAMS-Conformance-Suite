@@ -2,7 +2,7 @@
 
 What only [VerA](https://github.com/OmarSiwy/VerA) uses. VerA checks this
 suite out at `tests/conformance` and runs `tests/` through its own harness
-(`zig build test-ams`, `test-devices`, `test-1364`, `test-vpi`, `test-spice`);
+(`zig build suite -- ams|devices|ieee1364`, `test` for the hosts and VPI applications, `test-spice`);
 `conform` never reads this directory, since a test is a file under `tests/`.
 
 | Path | Contents |

@@ -59,6 +59,6 @@ none is a standalone HDL conformance test. The event probe uses current zero,
 predecessor one and replacement two to avoid requiring a handle for an
 equal-current-value event. Cancelling the replacement must leave zero.
 
-The existing test-vpi-fixtures runner compiles these C clients only. A compile
+VerA's `zig build suite -- vpi` compiles these C clients only. A compile
 pass does not assert the paired HDL, callback markers, event timing or runtime
 results. Missing API compilation is a failure, never an expected rejection.
