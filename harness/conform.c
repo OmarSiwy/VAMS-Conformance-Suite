@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
+#include <sys/resource.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <time.h>
@@ -440,6 +441,11 @@ static Stage run_stage(const char *cmd, const char *work, const char *name) {
     if (pid < 0) die("fork: %s", strerror(errno));
     if (pid == 0) {
         setpgid(0, 0);
+        /* A runaway tool (iverilog on an instance array whose width
+         * overflows) writes until the disk is full and takes the CI runner
+         * down with it; past this it gets SIGXFSZ and the stage fails. */
+        struct rlimit fsize = {256 << 20, 256 << 20};
+        setrlimit(RLIMIT_FSIZE, &fsize);
         int o = open(out, O_WRONLY | O_CREAT | O_TRUNC, 0644);
         int e = open(err, O_WRONLY | O_CREAT | O_TRUNC, 0644);
         int nul = open("/dev/null", O_RDONLY);
