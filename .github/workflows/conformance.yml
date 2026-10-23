@@ -25,9 +25,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: true # not recursive: sv-tests nests LLVM, Yosys, ... and fills the disk
       - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/magic-nix-cache-action@main
       - run: tools/ci.sh ${{ matrix.tool }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
