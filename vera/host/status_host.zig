@@ -3,7 +3,7 @@
 //! first site an evaluation reaches latches `Instance.vera_status__` and its
 //! numeric arguments; from then on `eval`, `q` and `evalQ` return all-zero rows
 //! and charges, value and every derivative lane, and `updateState` leaves the
-//! state alone, until `initState` clears it. The device is tests/fixtures/ch09_system_tasks/status_ops.va
+//! state alone, until `initState` clears it. The device is tests/conformance/tests/verilog-a/ch09_system_tasks/status_ops.va
 //! (its header lists the sites); `zig build test` emits it and runs this file.
 //! device tests/verilog-a/ch09_system_tasks/status_ops.va
 

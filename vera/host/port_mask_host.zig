@@ -1,5 +1,5 @@
 //! §9.19 `$port_connected` on a top-level device reads the host-written
-//! `Model.port_connected__` mask (tests/fixtures/ch09_system_tasks/port_mask.va).
+//! `Model.port_connected__` mask (tests/conformance/tests/verilog-a/ch09_system_tasks/port_mask.va).
 //! device tests/verilog-a/ch09_system_tasks/port_mask.va
 
 const std = @import("std");

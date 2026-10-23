@@ -50,7 +50,7 @@
 //!
 //! `stateCtl` commits and reverts every field `updateState` advances,
 //! `State.t_prev` included: a revert that left t_prev at the discarded 2ns
-//! would make the retry's dt negative. tests/fixtures/ch04_expressions/revert_host.zig asserts the same
+//! would make the retry's dt negative. tests/conformance/vera/host/revert_host.zig asserts the same
 //! for every other device-held history. `zig build test` emits the device from
 //! rollback_a04_rollback_ops.va and runs this file.
 //! device tests/verilog-a/ch04_expressions/rollback_a04_rollback_ops.va

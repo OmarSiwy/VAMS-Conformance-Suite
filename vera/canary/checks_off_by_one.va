@@ -2,7 +2,7 @@
 //! lrm 5.6.3
 //! bias V(p) = 1.5, V(n) = 0.25
 //! checks 2
-`include "../check.vh"
+`include "check.vh"
 module canary_checks_off_by_one(p, n);
   inout p, n; electrical p, n;
   analog begin

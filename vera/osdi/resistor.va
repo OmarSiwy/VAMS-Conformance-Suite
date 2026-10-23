@@ -1,5 +1,5 @@
 // A linear resistor with a parallel capacitor and its thermal noise: the
-// `vera --emit-osdi` fixture tests/fixtures/external/osdi/resistor.sp loads
+// `vera --emit-osdi` fixture tests/conformance/vera/osdi/resistor.sp loads
 // in ngspice. Every value it checks is derived by hand in that deck.
 `include "disciplines.vams"
 

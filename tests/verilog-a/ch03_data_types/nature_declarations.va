@@ -16,6 +16,8 @@
 //! lrm 3.6.1.1:1
 //! lrm 3.13.1:1000
 //! bias V(hv_p) = 4, V(hv_n) = 1
+// Own base natures below: D.1's guard keeps annex D's out of check.vh's include.
+`define DISCIPLINES_VAMS 1
 `include "check.vh"
 nature ch03_voltage;
     units = "V";
@@ -42,7 +44,7 @@ enddiscipline
 
 module ch03_nature_declarations(p, n);
     inout p, n;
-    electrical p, n;
+    ch03_hv_disc p, n;
     ch03_hv_disc hv_p, hv_n;
 
     analog begin

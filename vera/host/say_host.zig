@@ -2,7 +2,7 @@
 //! (`contract.SaySite`). A device cannot print, so a host calls `say` at an
 //! accepted point (§9.4.6) and renders what it recorded with
 //! `contract.formatSay`. The device is
-//! tests/fixtures/ch09_system_tasks/say_ops.va (its header lists the sites);
+//! tests/conformance/tests/verilog-a/ch09_system_tasks/say_ops.va (its header lists the sites);
 //! `zig build test` emits it and runs this file.
 //! device tests/verilog-a/ch09_system_tasks/say_ops.va
 

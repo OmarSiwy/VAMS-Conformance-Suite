@@ -1,5 +1,5 @@
 //! §2.9 VerA's `vera_timepoint` over a §5.10 held history in a DEVICE:
-//! tests/fixtures/ch05_analog_behavior/vera_timepoint_held_history.va, the
+//! tests/conformance/tests/verilog-a/ch05_analog_behavior/vera_timepoint_held_history.va, the
 //! shape of ESPice's lossy lines (#82). Its statement commits the point
 //! accepted last into two 2048-deep held arrays, and `eval` writes them
 //! straight into the cache slot instead of a local copy. Checked here: the

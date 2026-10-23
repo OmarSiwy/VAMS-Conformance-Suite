@@ -4,7 +4,7 @@
 //! reject-run E0601
 //! sweep V(p) = 3, -3
 //! print none
-`include "../check.vh"
+`include "check.vh"
 module reject_run_clean_exit(p, n);
   inout p, n; electrical p, n;
   integer d;

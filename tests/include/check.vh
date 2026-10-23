@@ -28,8 +28,12 @@
 `ifndef VERA_CHECK_VH
 `define VERA_CHECK_VH
 
-// Annex D: a test names the standard definitions it uses; no tool prelude.
+// Annex D: a test names the standard definitions it uses; no tool prelude. A
+// test that declares its own base natures defines DISCIPLINES_VAMS (D.1's own
+// guard) before this include, and D.1 stays out of its compilation.
+`ifndef DISCIPLINES_VAMS
 `include "disciplines.vams"
+`endif
 `include "constants.vams"
 
 // GOT AND WANT ARE EXPANDED TWICE — once for the transcript column, once inside

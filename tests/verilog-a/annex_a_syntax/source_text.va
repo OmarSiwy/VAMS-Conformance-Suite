@@ -58,6 +58,8 @@
 //! bias V(p) = 0.6
 //! bias V(n) = 0.1
 //! print none
+// Own base natures below: D.1's guard keeps annex D's out of check.vh's include.
+`define DISCIPLINES_VAMS 1
 `include "check.vh"
 nature annex_a_voltage;
     units = "V";

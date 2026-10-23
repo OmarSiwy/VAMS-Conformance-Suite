@@ -1,4 +1,4 @@
-# tests/fixtures/canary: the verdict tests/suite.zig's Canary requires for each fixture.
+# tests/conformance/vera/canary: the verdict tests/suite.zig's Canary requires for each fixture.
 # <file>	<normal|perturb>	<pass | a substring of the harness's FAIL text>
 wrong_want.va	normal	assertion(s) reported ok=0
 xpass.va	normal	XPASS

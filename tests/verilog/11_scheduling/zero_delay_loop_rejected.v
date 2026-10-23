@@ -8,6 +8,7 @@
 //
 // always #0 a = ~a reschedules itself at time 0 forever (§9.7.1: #0 suspends
 // to the inactive region of the SAME time).
+//! event-budget 1000
 //! inherited IEEE 1364-2005 11.4
 //! reject E1100
 //! reject more than 1000 events at time 0

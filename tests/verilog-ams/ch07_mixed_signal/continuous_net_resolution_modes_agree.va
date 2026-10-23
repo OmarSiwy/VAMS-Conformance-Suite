@@ -51,6 +51,8 @@
 //! lrm 7.4.5:1
 //! bias V(undec) = 0.5
 //! print none
+// Own base natures below: D.1's guard keeps annex D's out of check.vh's include.
+`define DISCIPLINES_VAMS 1
 `include "check.vh"
 nature ch745_pot;
   units = "V";

@@ -23,6 +23,8 @@
 //! lrm 5.5.3
 //! bias V(t1) = 2.5, V(t2) = 0.5
 //! checks 3
+// Own base natures below: D.1's guard keeps annex D's out of check.vh's include.
+`define DISCIPLINES_VAMS 1
 `include "check.vh"
 nature b1_ttl_curr;
     units = "A";

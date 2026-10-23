@@ -25,6 +25,8 @@
 //! abstol b = 1e-9
 //! abstol spare = 1e-6
 //! checks 11
+// Own base natures below: D.1's guard keeps annex D's out of check.vh's include.
+`define DISCIPLINES_VAMS 1
 `include "check.vh"
 nature min_tol_voltage;
   units = "V";

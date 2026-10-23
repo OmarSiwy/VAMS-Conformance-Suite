@@ -1,5 +1,5 @@
 /* Required behavior, isolated from the census application's expected-failure guards.
- * vpi_design.va declares bus [0:3], instantiates u1 on line 38 and has an
+ * vpi_design.va declares bus [0:3], instantiates u1 on line 39 and has an
  * internal mid net that is not a low connection of a top-level port.
  */
 //! lrm 11.6.8

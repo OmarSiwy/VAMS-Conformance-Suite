@@ -3,7 +3,7 @@
 //! lrm 5.6.3
 //! bias V(p) = 1.5, V(n) = 0.25
 //! xfail canary: this fixture passes
-`include "../check.vh"
+`include "check.vh"
 module canary_xpass(p, n);
   inout p, n; electrical p, n;
   analog begin

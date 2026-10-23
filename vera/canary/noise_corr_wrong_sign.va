@@ -5,7 +5,7 @@
 //! noise thermal(c,d)#0
 //! analysis noise
 //! bias V(a) = 0.0, V(b) = 0.0, V(c) = 0.0, V(d) = 0.0
-`include "../check.vh"
+`include "check.vh"
 module canary_noise_corr_wrong_sign(a, b, c, d);
   inout a, b, c, d; electrical a, b, c, d;
   real n;

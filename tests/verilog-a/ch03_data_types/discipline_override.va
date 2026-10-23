@@ -17,6 +17,8 @@
 //! lrm 3.6.2.5
 //! lrm 3.6.2.5:1000
 //! checks 3
+// Own base natures below: D.1's guard keeps annex D's out of check.vh's include.
+`define DISCIPLINES_VAMS 1
 `include "check.vh"
 nature ch03_override_voltage;
     units = "V";

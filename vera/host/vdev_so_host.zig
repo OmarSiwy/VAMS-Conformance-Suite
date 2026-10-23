@@ -1,6 +1,6 @@
 //! `.v` contract devices built by `vera --emit-so` (LLVM, so linked against
 //! the prebuilt engine, `sim/rt/engine.zig`) against the same devices
-//! compiled here whole: the same transient (`tests/fixtures/ch07_mixed_signal/vdev_dyn.zig`) must keep
+//! compiled here whole: the same transient (`tests/conformance/vera/host/vdev_dyn.zig`) must keep
 //! the same output levels, ramps and next events at every point. v_count's
 //! outputs move on its own clock, v_a2d's on input crossings; v_buf's on
 //! every input edge. A device that loaded nothing or ran no point would

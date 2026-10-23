@@ -11,6 +11,8 @@
 //! lrm 3.6.2
 //! lrm 7.2.1
 //! bias V(p) = 2.5
+// Own base natures below: D.1's guard keeps annex D's out of check.vh's include.
+`define DISCIPLINES_VAMS 1
 `include "check.vh"
 nature ch7_voltage;
   units = "V";

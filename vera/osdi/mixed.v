@@ -1,5 +1,5 @@
 // A Verilog module built by `vera --emit-osdi` and loaded in ngspice beside a
-// Verilog-A one (tests/fixtures/external/osdi/mixed.sp derives every value):
+// Verilog-A one (tests/conformance/vera/osdi/mixed.sp derives every value):
 // y is a combinational inverter of a, q toggles on each rising clk, and c is
 // a counter on an internal 10 ns clock whose first rising edge is at 5 ns.
 `timescale 1ns/1ps

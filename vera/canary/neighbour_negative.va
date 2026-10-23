@@ -2,6 +2,7 @@
 //! lrm 5.10.3.3
 //! reject-only E0517
 //! neighbour reject_wrong_code.va
+`include "disciplines.vams"
 module canary_neighbour_negative(p);
   inout p; electrical p;
   integer k;

@@ -8,6 +8,7 @@
 // DERIVATION: at time 0 there are two process events and 900 iterations of
 // the while loop (one count per pass back to its test): 902 <= 1000, so the
 // loop ends with n = 900 and the run goes on to time 5.
+//! event-budget 1000
 //! inherited IEEE 1364-2005 9.6
 module b_9_6_untimed_loop_under_budget;
   integer n;

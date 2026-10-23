@@ -7,7 +7,7 @@
 #ifndef B_CHECK_H
 #define B_CHECK_H
 
-#include "../ch11_vpi/p02_check.h"
+#include "../../verilog-ams/ch11_vpi/p02_check.h"
 
 /* A requirement VerA does not meet yet: prints `xfail <clause>: <what>` on
  * stdout instead of exiting. The fixture's `//! stdout` pins that line, so the fix

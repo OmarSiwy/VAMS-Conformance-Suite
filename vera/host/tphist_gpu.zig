@@ -1,5 +1,5 @@
 //! §2.9 a `vera_timepoint` statement over a held history on a GPU target:
-//! tests/fixtures/ch05_analog_behavior/vera_timepoint_held_history.va's `eval` and
+//! tests/conformance/tests/verilog-a/ch05_analog_behavior/vera_timepoint_held_history.va's `eval` and
 //! `updateState` as one function (#82). NVPTX goes to PTX assembly, which
 //! `tphist_host.zig` reads for the functions' `.local` stack depots; `zig
 //! build test` builds this for NVPTX and AMDGCN, and no GPU runs it.

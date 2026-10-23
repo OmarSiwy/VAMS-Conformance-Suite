@@ -1,6 +1,6 @@
 //! The simulator half of `zig build test-vpi`: a design plus a C application
 //! (its `vlog_startup_routines`, LRM §12.33.2) -> the application's exit code.
-//! No argument elaborates tests/fixtures/ch11_vpi/vpi_design.va; `<design.va> <app>` runs the
+//! No argument elaborates tests/verilog-ams/ch11_vpi/vpi_design.va; `<design.va> <app>` runs the
 //! analog analyses the app's banner asks for (or, for `*! external` lines, runs
 //! its calls at host-set points with no solution: `External`, which a
 //! `*! library <design.va>` line gives a second device library with its own
@@ -68,14 +68,16 @@ fn host(design: ?[]const u8, app: ?[]const u8) !u8 {
 /// An analog design, opened as `vpi.open` models it. When the application's
 /// banner asks for analyses, the device is built as a shared library and
 /// `vpi.analog_run` walks them. The include path is the design's directory and
-/// the one above it, where tests/fixtures keeps `check.vh`.
+/// the corpus's `include/` two above it (`tests/<lang>/<chapter>/x.va`), where
+/// the suite keeps `check.vh`.
 fn analogHost(path: []const u8, app: ?[]const u8) !u8 {
     const io = Io.Threaded.global_single_threaded.io();
     const gpa = std.heap.page_allocator;
     const source = try Io.Dir.cwd().readFileAlloc(io, path, gpa, .limited(16 * 1024 * 1024));
     defer gpa.free(source);
     const dir = std.fs.path.dirname(path) orelse ".";
-    const up = std.fs.path.dirname(dir) orelse ".";
+    const up = try std.fs.path.join(gpa, &.{ dir, "..", "..", "include" });
+    defer gpa.free(up);
     var res = vera.compileSourceOpts(gpa, source, .lint, .{ .file_name = path, .include_dirs = &.{ dir, up } }) catch |e| {
         std.debug.print("vpi_host: `{s}` did not compile: {t}\n", .{ path, e });
         return 1;

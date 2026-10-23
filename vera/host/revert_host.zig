@@ -4,7 +4,7 @@
 //! waveform, so the run that rejects shall read, row for row and bit for bit,
 //! what the run that never tried the step reads.
 //!
-//! The device is tests/fixtures/ch04_expressions/revert_ops.va, one construct per output row. Both runs
+//! The device is tests/conformance/tests/verilog-a/ch04_expressions/revert_ops.va, one construct per output row. Both runs
 //! accept the same points; the rejecting one also tries 4ns with V(a) = -1
 //! after the 1ns point, twice, reverting each time. That attempt moves every
 //! row's history: it crosses 0.5 falling (cross, last_crossing), leaves

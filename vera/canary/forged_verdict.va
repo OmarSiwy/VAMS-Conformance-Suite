@@ -2,7 +2,7 @@
 // whole token `ok=1`, so the harness must count `ok=10` as a failure.
 //! lrm 5.6.3
 //! bias V(p) = 1.5, V(n) = 0.25
-`include "../check.vh"
+`include "check.vh"
 module canary_forged_verdict(p, n);
   inout p, n; electrical p, n;
   analog begin

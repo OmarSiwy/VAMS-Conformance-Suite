@@ -1,7 +1,7 @@
 //! A `.v` contract device's transient as one C-ABI call: the `--dyn` host
 //! `vera --emit-so` builds it under (`exportDevice`, exporting `vdev_run`),
 //! and the same code over a statically imported device (`Run`), so
-//! `tests/fixtures/ch07_mixed_signal/vdev_so_host.zig` can compare a device linked against the prebuilt
+//! `tests/conformance/vera/host/vdev_so_host.zig` can compare a device linked against the prebuilt
 //! engine (`sim/rt/engine.zig`) with one that compiles the whole engine.
 //! The transient takes `steps` points 1 ns apart, every input a 0/5 V
 //! square wave of period 20 ns, runs `updateState` and commits each, and

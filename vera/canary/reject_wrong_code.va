@@ -2,6 +2,7 @@
 // the header claims. The wrong rule refusing is not the named rule refusing.
 //! lrm 5.10.3.3
 //! reject E0439
+`include "disciplines.vams"
 module canary_reject_wrong_code(p);
   inout p; electrical p;
   integer k;

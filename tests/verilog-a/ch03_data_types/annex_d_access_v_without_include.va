@@ -25,6 +25,8 @@
 //! bias V(p) = 0.5
 //! abstol p = 1e-3
 //! checks 3
+// Own base natures below: D.1's guard keeps annex D's out of check.vh's include.
+`define DISCIPLINES_VAMS 1
 `include "check.vh"
 nature ch3_vd096_volt; units = "V"; access = V; abstol = 1m; endnature
 nature ch3_vd096_amp; units = "A"; access = I; abstol = 1n; endnature

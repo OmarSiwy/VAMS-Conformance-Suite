@@ -74,6 +74,8 @@
 //! bias V(NetA) = 0.5
 //! abstol NetA = 1e-9
 //! print none
+// Own base natures below: D.1's guard keeps annex D's out of check.vh's include.
+`define DISCIPLINES_VAMS 1
 `include "check.vh"
 nature f72_i;
   units = "A";

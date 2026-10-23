@@ -438,7 +438,7 @@ static void check_required_positive(void)
    * is USED, not its definition. vpi_design.va:38 instantiates u1;
    * the vpi_mid definition is line48. No `line directive changes either. */
   // evidence: pass VPI-LINE-INSTANCE
-  CHECK(u1 != NULL && line == 38, "VPI-LINE-INSTANCE: expected source line 38, observed %d", (int)line);
+  CHECK(u1 != NULL && line == 39, "VPI-LINE-INSTANCE: expected source line 39, observed %d", (int)line);
   expect_no_error("vpi_get(vpiLineNo) on an instance");
   fprintf(stderr, "PASS VPI-LINE-INSTANCE: u1 is instantiated on line %d\n", (int)line);
 

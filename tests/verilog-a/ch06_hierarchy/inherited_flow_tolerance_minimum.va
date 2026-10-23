@@ -5,6 +5,8 @@
 //! solve
 //! abstol I(p) = 1e-12
 //! checks 2
+// Own base natures below: D.1's guard keeps annex D's out of check.vh's include.
+`define DISCIPLINES_VAMS 1
 `include "check.vh"
 nature loose_current;
   units="A"; access=I; abstol=1n;

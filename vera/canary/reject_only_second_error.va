@@ -2,6 +2,7 @@
 // `reject E0517` passes this; `reject-only` must not (CLAUSE-AUDIT.md §6.3).
 //! lrm 5.10.3.3
 //! reject-only E0517
+`include "disciplines.vams"
 module canary_reject_only_second_error(p, n);
   inout p, n; electrical p, n;
   branch (p, n) b;

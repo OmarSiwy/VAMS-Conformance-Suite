@@ -1,4 +1,4 @@
-//! IEEE 1364-2005 §5.4 wide `reg`s in a DEVICE: tests/fixtures/ch07_mixed_signal/wide_reg_held_across_evaluations.va,
+//! IEEE 1364-2005 §5.4 wide `reg`s in a DEVICE: tests/conformance/tests/verilog-ams/ch07_mixed_signal/wide_reg_held_across_evaluations.va,
 //! whose `analog initial` assigns a 72-bit `reg` (one native `u72`) and a
 //! 300-bit one (ten 32-bit limbs). `updateState` keeps both whole in
 //! `Instance` for the next evaluation (`wide_kernels.zig`, `analog/wide.zig`).

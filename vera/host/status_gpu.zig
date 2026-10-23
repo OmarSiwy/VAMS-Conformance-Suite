@@ -1,4 +1,4 @@
-//! §9.7.3 the status channel on a GPU target: tests/fixtures/ch09_system_tasks/status_ops.va's `eval`,
+//! §9.7.3 the status channel on a GPU target: tests/conformance/tests/verilog-a/ch09_system_tasks/status_ops.va's `eval`,
 //! `evalQ` and `updateState` as one kernel, so the latch and the zero plane
 //! compile for NVPTX and AMDGCN (`zig build test` builds this for both; no
 //! GPU runs it). The host code above `status_host.zig` checks the behaviour.

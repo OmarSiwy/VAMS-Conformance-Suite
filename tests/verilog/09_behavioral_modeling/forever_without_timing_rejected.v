@@ -12,6 +12,7 @@
 // the first activation and still at time 0, ends the run. The $display at #1
 // never runs. Legal neighbour: untimed_loop_under_budget.v, a finite
 // untimed loop under the same budget that runs to its end.
+//! event-budget 1000
 //! inherited IEEE 1364-2005 9.6
 //! reject E1100
 //! reject more than 1000 loop iterations and events at time 0

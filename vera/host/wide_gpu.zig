@@ -1,4 +1,4 @@
-//! IEEE 1364-2005 §5.4 wide `reg`s on a GPU target: tests/fixtures/ch07_mixed_signal/wide_reg_held_across_evaluations.va's
+//! IEEE 1364-2005 §5.4 wide `reg`s on a GPU target: tests/conformance/tests/verilog-ams/ch07_mixed_signal/wide_reg_held_across_evaluations.va's
 //! `eval` and `updateState` as one function, so the native (`u72`) and the
 //! limb (300-bit) kernels of `wide_kernels.zig` compile for NVPTX and AMDGCN
 //! (`zig build test` builds this for both; no GPU runs it). NVPTX is taken to

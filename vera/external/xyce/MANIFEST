@@ -1,5 +1,5 @@
 suite: xyce
-what: a third opinion: VerA's library in ngspice against Xyce's own built-in model of the same version, on the DC tests of the model's va-models qaSpec (tests/fixtures/external/va-models/<name>.qa), compared with the CMC rule
+what: a third opinion: VerA's library in ngspice against Xyce's own built-in model of the same version, on the DC tests of the model's va-models qaSpec (tests/conformance/vera/external/va-models/<name>.qa), compared with the CMC rule
 url: none beyond the va-models checkout (its MANIFEST pins it); Xyce 7.10.0 comes from `nix develop .#benchmarking`
 license: Apache-2.0 (this folder is VerA's own); nothing of Xyce (GPL-3.0) is stored
 files: MANIFEST
