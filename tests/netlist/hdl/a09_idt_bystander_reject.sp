@@ -1,4 +1,3 @@
-* KNOWN GAP: A09 B1, the host keeps an idt/event accumulator's state from a rejected step (docs/a09-accepted-rejected-lifecycle.md)
 * A09: a step rejection raised by ANOTHER device must not disturb this one's
 * accepted-time operator state. N2 resolves a cross() event, which costs the
 * host a rejected-and-retried step at t = 0.125, 0.375, 0.625 and 0.875; N1 is

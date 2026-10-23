@@ -1,4 +1,3 @@
-* KNOWN GAP: A09 B1, the host keeps an idt/event accumulator's state from a rejected step (docs/a09-accepted-rejected-lifecycle.md)
 * A09: rejection from the INTEGRATOR, not from an event. The Rs/C1 branch driven
 * at 20 Hz makes the local-truncation-error controller reject and retry steps
 * throughout the run; N1 carries no charge and must still read v(out) = t.

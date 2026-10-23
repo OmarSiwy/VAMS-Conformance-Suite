@@ -1,4 +1,3 @@
-* KNOWN GAP: A09 B1, the host keeps an idt/event accumulator's state from a rejected step (docs/a09-accepted-rejected-lifecycle.md)
 * A09: the instance that CAUSES the rejection keeps its own accepted-time state.
 * One module owns both the cross() latch (which forces the retry) and the idt
 * accumulator, so the retry re-enters the same instance that triggered it.
