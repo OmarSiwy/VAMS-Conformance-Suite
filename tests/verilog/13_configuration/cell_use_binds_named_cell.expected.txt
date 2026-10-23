@@ -1,0 +1,2 @@
+gate top.u1 work.gate
+gate top.u2 work.gate

@@ -1,0 +1,3 @@
+enabled=1010,1010
+disabled=zzzz,zzzz
+changed=0101,0101

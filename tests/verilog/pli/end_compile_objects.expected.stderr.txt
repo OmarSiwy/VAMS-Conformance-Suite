@@ -1,0 +1,1 @@
+pli-end-compile type=vpiModule

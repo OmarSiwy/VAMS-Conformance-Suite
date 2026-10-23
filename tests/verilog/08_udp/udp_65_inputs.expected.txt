@@ -1,0 +1,3 @@
+all ones q=1
+one zero q=x
+all ones again q=1

@@ -1,0 +1,2 @@
+// Syntax 13-2: a library declaration names at least one file_path_spec.
+library lib1;

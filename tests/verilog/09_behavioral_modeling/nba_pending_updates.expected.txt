@@ -1,0 +1,4 @@
+queued q=0
+t3 q=1
+t5 q=0
+t7 q=1

@@ -1,0 +1,2 @@
+same q=0 seen=1
+cross r=0 seen=1

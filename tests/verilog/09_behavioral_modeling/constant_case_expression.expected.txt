@@ -1,0 +1,4 @@
+Select Line 2
+Select Line 1
+Select Line 0
+Error: One of the bits expected ON

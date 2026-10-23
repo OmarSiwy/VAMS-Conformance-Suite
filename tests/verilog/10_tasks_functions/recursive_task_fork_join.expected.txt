@@ -1,0 +1,4 @@
+2: n=2 arm
+3: n=1 arm
+3: n=1 joined
+3: n=2 joined

@@ -1,0 +1,3 @@
+and11=x0x
+and00=0xx
+or11=1xx

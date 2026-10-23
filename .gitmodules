@@ -1,0 +1,32 @@
+[submodule "external/iverilog"]
+	path = external/iverilog
+	url = https://github.com/steveicarus/iverilog
+	shallow = true
+[submodule "external/sv-tests"]
+	path = external/sv-tests
+	url = https://github.com/chipsalliance/sv-tests
+	shallow = true
+[submodule "external/ispras-sv-tests"]
+	path = external/ispras-sv-tests
+	url = https://github.com/ispras/sv-tests
+	shallow = true
+[submodule "external/OpenVAF-Reloaded"]
+	path = external/OpenVAF-Reloaded
+	url = https://github.com/OpenVAF/OpenVAF-Reloaded
+	shallow = true
+[submodule "external/gnucap-modelgen-verilog"]
+	path = external/gnucap-modelgen-verilog
+	url = https://github.com/gnucap/gnucap-modelgen-verilog
+	shallow = true
+[submodule "external/VA-Models"]
+	path = external/VA-Models
+	url = https://github.com/dwarning/VA-Models
+	shallow = true
+[submodule "external/Xyce_Regression"]
+	path = external/Xyce_Regression
+	url = https://github.com/Xyce/Xyce_Regression
+	shallow = true
+[submodule "external/ngspice"]
+	path = external/ngspice
+	url = https://git.code.sf.net/p/ngspice/ngspice
+	shallow = true

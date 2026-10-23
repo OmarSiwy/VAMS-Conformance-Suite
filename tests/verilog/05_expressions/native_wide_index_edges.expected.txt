@@ -1,0 +1,3 @@
+edges xx10 01xx 01xx xx10
+write e5 a7 a7 e5
+nba 25

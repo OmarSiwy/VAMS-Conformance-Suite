@@ -1,0 +1,9 @@
+// Syntax 2-2: the size begins with a non_zero_decimal_digit.
+//! lrm 2.6.1
+//! reject-only E0133
+`include "disciplines.vams"
+module ch02_leading_zero_size_rejected(p);
+  inout p;
+  electrical p;
+  analog I(p) <+ 08'hff;
+endmodule

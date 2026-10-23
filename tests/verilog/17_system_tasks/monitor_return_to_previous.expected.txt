@@ -1,0 +1,4 @@
+a=0
+before change
+a=0
+after change
