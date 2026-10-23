@@ -3,3 +3,4 @@ result
 result-*
 .zig-cache/
 results/
+__pycache__/
