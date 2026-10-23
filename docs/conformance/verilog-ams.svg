@@ -1,9 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="114" viewBox="0 0 760 114" role="img" aria-labelledby="t"><title id="t">Verilog-AMS conformance</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="182" viewBox="0 0 760 182" role="img" aria-labelledby="t"><title id="t">Verilog-AMS conformance</title>
 <style>text{font:13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#0b0b0b}.m{fill:#52514e}.h{font-size:15px;font-weight:600}.bg{fill:#fcfcfb}.trk{fill:#ebeae6}.p{fill:#2a78d6}.f{fill:#eb6834}@media (prefers-color-scheme:dark){text{fill:#fff}.m{fill:#c3c2b7}.bg{fill:#1a1a19}.trk{fill:#2c2c2a}.p{fill:#3987e5}.f{fill:#d95926}}</style>
-<rect class="bg" width="760" height="114" rx="8"/>
+<rect class="bg" width="760" height="182" rx="8"/>
 <text class="h" x="16" y="26">Verilog-AMS</text>
 <rect class="p" x="16" y="38" width="12" height="12" rx="3"/><text class="m" x="34" y="48">Passed</text>
 <rect class="f" x="94" y="38" width="12" height="12" rx="3"/><text class="m" x="112" y="48">Failed</text>
 <rect class="trk" x="172" y="38" width="12" height="12" rx="3"/><text class="m" x="190" y="48">Not supported</text>
-<text class="m" x="16" y="80">No tool has run these tests yet.</text>
+<text x="16" y="77">VerA</text>
+<rect class="trk" x="150" y="64" width="430" height="18" rx="4"><title>73 not supported</title></rect>
+<rect class="p" x="150.0" y="64" width="294.5" height="18" rx="4"><title>513 passed (69.0%)</title></rect>
+<rect class="f" x="446.5" y="64" width="89.3" height="18" rx="4"><title>158 failed (21.2%)</title></rect>
+<text x="592" y="77"><tspan font-weight="600">69.0%</tspan><tspan class="m"> 513 / 744</tspan></text>
+<text x="16" y="111">Verilator</text>
+<rect class="trk" x="150" y="98" width="430" height="18" rx="4"><title>741 not supported</title></rect>
+<rect class="f" x="150.0" y="98" width="1.0" height="18" rx="4"><title>3 failed (0.4%)</title></rect>
+<text x="592" y="111"><tspan font-weight="600">0.0%</tspan><tspan class="m"> 0 / 744</tspan></text>
+<text x="16" y="145">ngspice</text>
+<rect class="trk" x="150" y="132" width="430" height="18" rx="4"><title>741 not supported</title></rect>
+<rect class="f" x="150.0" y="132" width="1.0" height="18" rx="4"><title>3 failed (0.4%)</title></rect>
+<text x="592" y="145"><tspan font-weight="600">0.0%</tspan><tspan class="m"> 0 / 744</tspan></text>
 </svg>

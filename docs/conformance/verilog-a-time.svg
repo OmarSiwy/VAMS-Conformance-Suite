@@ -2,6 +2,8 @@
 <style>text{font:13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:#0b0b0b}.m{fill:#52514e}.h{font-size:15px;font-weight:600}.bg{fill:#fcfcfb}.p{fill:#2a78d6}@media (prefers-color-scheme:dark){text{fill:#fff}.m{fill:#c3c2b7}.bg{fill:#1a1a19}.p{fill:#3987e5}}</style>
 <rect class="bg" width="760" height="102" rx="8"/>
 <text class="h" x="16" y="26">Verilog-A: wall time, shorter is faster</text>
-<text class="m" x="16" y="44">the 0 tests it passes</text>
-<text class="m" x="16" y="68">No tests to time yet.</text>
+<text class="m" x="16" y="44">the 770 tests it passes</text>
+<text x="16" y="65">VerA</text>
+<rect class="p" x="150" y="52" width="430.0" height="18" rx="4"><title>55.4 s total, median 20 ms per test</title></rect>
+<text x="590.0" y="65"><tspan font-weight="600">55.4 s</tspan><tspan class="m"> median 20 ms/test</tspan></text>
 </svg>
