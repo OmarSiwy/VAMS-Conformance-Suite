@@ -1,0 +1,60 @@
+# Every tool at its latest version over every test; redraws the README's
+# conformance charts (tools/ci.sh fetches and runs, tools/report.py draws).
+name: conformance
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [tests/**, external/**, harness/**, tools/**, .github/workflows/conformance.yml]
+
+concurrency:
+  group: conformance
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        tool: [vera, openvaf, iverilog, verilator, ngspice, espice]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - run: tools/ci.sh ${{ matrix.tool }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: results-${{ matrix.tool }}
+          path: results/
+
+  report:
+    needs: run
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: results-*
+          path: results
+          merge-multiple: true
+      - run: python3 tools/report.py results
+      - name: Commit the charts
+        run: |
+          git add README.md docs/conformance
+          git diff --cached --quiet && exit 0
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "conformance: results of run ${{ github.run_id }}"
+          git push

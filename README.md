@@ -45,6 +45,7 @@ scripted fake tool and checks every verdict (`nix flake check` runs it).
 | `tests/verilog-ams/` | Tests needing the full language: digital and mixed-signal constructs, VPI. |
 | `tests/verilog/` | IEEE 1364-2005 tests by clause (`03_lexical_conventions` ... `A_formal_syntax`, `pli`). |
 | `tests/spice/` | Annex E: SPICE primitives, model cards and netlists seen from Verilog-AMS. |
+| `tests/netlist/` | SPICE decks by analysis (`op`, `dc`, `tran`, `ac`, `noise`, `pss`, `hb`, ...), each with a `.expected.json` oracle. |
 | `tests/include/` | `check.vh`, the `CHECK` assertion macros, and `erfc.vh`. |
 | `external/` | Upstream suites as submodules, one `<suite>.manifest` each, and `manifests.py`, which writes them. |
 | `harness/` | `conform.c` and its selftest. |
@@ -54,9 +55,10 @@ Chapter directories follow the Verilog-AMS LRM 2023 (`ch05_analog_behavior`,
 `annex_a_syntax`, ...). A test is named after the behavior it checks; a test
 of a prohibition ends in `_rejected`.
 
-The `tests/` tree was imported from VerA's fixtures (Apache-2.0) and split by
-language: a source that uses anything Annex C excludes from Verilog-A (digital
-behavior, `wreal`, `discrete`, `===`, x/z literals, ...) is Verilog-AMS.
+The `tests/` tree was imported from VerA's fixtures and split by language: a
+source that uses anything Annex C excludes from Verilog-A (digital behavior,
+`wreal`, `discrete`, `===`, x/z literals, ...) is Verilog-AMS. `tests/netlist/`
+was imported from ESPice's fixtures. Both are Apache-2.0.
 
 ## Writing a test
 
@@ -156,7 +158,26 @@ run.verilog     = vvp -n "$CONFORM_WORK/sim.vvp"
 | `openvaf.conf` | `verilog-a`, `spice` | `openvaf-r` to OSDI, then `ngspice-osdi.py` runs the library in ngspice at the test's DC operating point and prints its `ok=` lines; transient, AC and noise testbenches SKIP |
 | `iverilog.conf` | `verilog` | `iverilog` + `vvp` |
 | `verilator.conf` | `verilog` | `verilator --binary --timing` |
-| `ngspice.conf` | `netlist` | SPICE decks from external suites |
+| `ngspice.conf` | `netlist` | `tests/netlist/` through `rawcheck.py`, and the external decks |
+| `espice.conf` | `netlist` | as `ngspice.conf`; `ESPICE=` overrides the executable |
+
+### SPICE decks
+
+A `.sp` deck in `tests/netlist/` is a test when a `<stem>.expected.json`
+oracle sits beside it. The oracle lists the plots the simulator's binary raw
+file must hold, each column's values and its `rtol`/`atol`, how rows match
+(`exact`, `selected_rows`, interpolated `samples`, `unordered`), `.meas`
+results, or `status: error` for a deck that must be refused. The tool's run
+stage calls `tools/rawcheck.py` with its simulator command; rawcheck runs it in
+the deck's directory and prints one `ok=` line per check:
+
+```
+run.netlist = python3 "$CONFORM_TOOLDIR/rawcheck.py" 'ngspice --batch ${RAW:+-r "$RAW"} "$DECK"'
+```
+
+Oracles that use a check kind rawcheck has not ported yet (pole-zero sets,
+moments, THD, repeatability) SKIP. A deck in another dialect names it in its
+oracle (`tokenizer: hspice`), passed on as `TOKENIZER`.
 
 ## Manifests
 
@@ -200,11 +221,18 @@ also how an xfail file lists it.
 
 ## Results
 
-The tools as of October 2026.
+Every Monday `.github/workflows/conformance.yml` fetches each tool at its
+latest version (`tools/ci.sh`: VerA and ESPice at their default branch,
+OpenVAF-Reloaded at its newest release, the rest at nixpkgs-unstable), runs it
+over every test and manifest, and redraws these charts with `tools/report.py`.
+A tool's score is the tests it passes over every test in the language: a test
+it cannot express counts against it, as "not supported".
 
-RESULTS_TABLE
+<!-- conformance:start -->
+No run yet: the first workflow run fills this in.
+<!-- conformance:end -->
 
 ## License
 
-The tests imported from VerA are Apache-2.0. Each submodule keeps its own
+The tests imported from VerA and ESPice are Apache-2.0. Each submodule keeps its own
 license; nothing of theirs is copied into this tree.

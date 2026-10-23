@@ -2,3 +2,4 @@ harness/conform
 result
 result-*
 .zig-cache/
+results/

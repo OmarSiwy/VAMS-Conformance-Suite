@@ -131,7 +131,7 @@ static int has_ext(const char *p, const char *ext) {
 }
 
 static int is_source(const char *p) {
-    return has_ext(p, ".va") || has_ext(p, ".vams") || has_ext(p, ".v") || has_ext(p, ".c");
+    return has_ext(p, ".va") || has_ext(p, ".vams") || has_ext(p, ".v") || has_ext(p, ".c") || has_ext(p, ".sp");
 }
 
 /* `<dir>/<stem><suffix>` beside `path`. */
@@ -156,6 +156,8 @@ static const char *directive(const char *line, const char *marker) {
 static int is_test(const char *path) {
     char gold[PATH_MAX];
     sibling(gold, sizeof gold, path, ".expected.txt");
+    if (access(gold, F_OK) == 0) return 1;
+    sibling(gold, sizeof gold, path, ".expected.json"); /* a SPICE deck's oracle */
     if (access(gold, F_OK) == 0) return 1;
     char *text = slurp(path, NULL);
     if (!text) return 0;
@@ -334,6 +336,11 @@ static int parse(const char *src, const char *dir, Spec *sp, char *why) {
     sibling(sp->errgold, sizeof sp->errgold, src, ".expected.stderr.txt");
     if (access(sp->errgold, F_OK)) *sp->errgold = 0;
     if (*sp->gold || sp->self_checks || has_ext(src, ".c")) sp->needs_run = 1;
+    /* A deck's .expected.json is judged by the tool's run stage, which prints
+     * one ok= line per oracle check (tools/rawcheck.py). */
+    char json[PATH_MAX];
+    sibling(json, sizeof json, src, ".expected.json");
+    if (access(json, F_OK) == 0) sp->needs_run = sp->self_checks = 1;
     return 0;
 }
 
